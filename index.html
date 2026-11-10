@@ -7,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="style.css" rel="stylesheet">
 </head>
-<body class="min-h-screen bg-black">
+<body class=" bg-black">
     <header class="mx-auto flex items-center sm:flex-row sm:items-center border-b-4 sm:justify-between">
-        <div class="ml-32 items-center mt-5 mb-5 flex italic">
+        <div class="ml-2 items-center mt-5 mb-5 flex italic">
             <img src="./img/images-removebg-preview.png" alt="video image" class="h-20">
             <strong><span class="text-amber-50 text-5xl">Ciné</span><span class="text-red-500 text-5xl">Track</span></strong>
         </div>
@@ -18,12 +18,24 @@
         <strong><p class="text-amber-50 italic mr-5">Votre sélection cinéma</p></strong>
         </div>
     </header>
+    <aside id="favaorites-sidebar" class=" bg-slate-800 border-l text-white font-bold text-xl border-slate-700 p-6 flex flex-col absolute w-80 h-[100%] right-0">Mes favoris</aside>
     <main>
+        
         <section>
-            <div class="m-4">
-        <span class="font-bold text-amber-50 text-2xl">catalogue:</span>
+            <form>
+                <div class="mt-5 flex gap-[30%]">
+                <input class="w-[40%] rounded-lg border border-slate-500 bg-slate-800 px-3 py-2 text-white italic focus:outline-none ml-5 focus:ring-2 focus:ring-blue-600" id="recherch" name="Recherch" placeholder="rechercher un film ou un séries" required>
+           
+            <select name="status" id="status" class="w-[6%] rounded-lg border border-slate-500 bg-slate-800 px-3 py-2 text-white italic focus:outline-none focus:ring-2 focus:ring-blue-600">
+            <option value="tous">Tous</option>
+            <option value="film">Fim</option>
+            <option value="series">Series</option>
+            </select>
             </div>
+            </form>
         </section>
     </main>
+    
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>
