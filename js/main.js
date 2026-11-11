@@ -3,7 +3,7 @@ import {modal, closeModal, renderCards, showError} from "./Ui.js";
 async function initialis(){
     try{
         allItems = await getTitles();
-        showcards();
+        showcards(allItems);
         console.log(allItems.length);
     }catch(error){
         showError("Impossible de charger les données. Réessayez plus tard");
@@ -11,14 +11,15 @@ async function initialis(){
     }
 }
 
+
 let allItems = [];
 
-function showcards(){
-    renderCards(allItems);
+function showcards(items){
+    renderCards(items);
     const cards = document.querySelectorAll(".card");
     
     cards.forEach(function (card){
-        card.addEeventListiner("click", function(){
+        card.addEventListener("click", function(){
             const id = card.dataset.id;
             
             const item = allItems.find(function (i){
@@ -35,3 +36,14 @@ document.querySelector("#modal").addEventListener("click", function(event){
     }
 })
 initialis();
+
+import {handleFilter} from "./filter.js";
+async function update() {
+    const result = await handleFilter();
+    showcards(result);
+}
+const searchfilm = document.getElementById("recherch");
+const searchSelector = document.getElementById("status");
+
+searchfilm.addEventListener("input", update);
+searchSelector.addEventListener("change", update);

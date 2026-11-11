@@ -19,7 +19,7 @@ export function renderCards(items) {
 }
 
 export function modal(item){
-    const khawi = "";
+    let khawi = "";
     if(item.type === "movie"){
         khawi = "Duree :" + item.duration + "min";
     }
@@ -27,13 +27,13 @@ export function modal(item){
         khawi = "Saisons : " + item.seasons.length;
     }
 
-const text = document.querySelector("modal");
+const text = document.querySelector("#modal-content");
 text.innerHTML =  `<button id="close-btn" class="text-2xl hover:text-red-500">✕</button>
     <img src="${item.image}" alt="${item.title}" class="w-full h-96 object-contain mb-4">
     <h2 class="text-3xl font-bold mb-3">${item.title}</h2>
-    <p class="mt-2">Type : ${getTypeLabel(item.type)}</p>
+    <p class="mt-2">Type : ${typeAflam(item.type)}</p>
     <p class="mt-2">Année : ${item.releaseYear}</p>
-    <p class="mt-2">${extra}</p>
+    <p class="mt-2">${khawi}</p>
     <p class="mt-2">Genres : ${item.genres.join(", ")}</p>
     <p class="mt-2">Réalisateurs : ${item.directors.join(", ")}</p>
     <p class="mt-2">Pays : ${item.productionCountries.join(", ")}</p>
