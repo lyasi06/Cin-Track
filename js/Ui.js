@@ -70,7 +70,6 @@ text.innerHTML =  `<div class="grid md:grid-cols-2">
                 </div>
             </div>
 
-            <button class="mt-8 px-6 py-3 rounded-xl bg-red-500 hover:bg-red-600 font-semibold">♡ Ajouter aux favoris</button>
         </div>
     </div>
   `;
