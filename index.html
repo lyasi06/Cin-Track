@@ -31,7 +31,7 @@
         <section>
             <form>
                 <div class="mt-5 flex gap-[48%]">
-                <input class="w-[40%] rounded-lg border border-slate-500 bg-slate-800 px-3 py-2 text-white italic focus:outline-none ml-5 focus:ring-2 focus:ring-blue-600" id="recherch" name="Recherch" placeholder="rechercher un film ou un séries" required>
+                <input id="recherch" class="w-[40%] rounded-lg border border-slate-500 bg-slate-800 px-3 py-2 text-white italic focus:outline-none ml-5 focus:ring-2 focus:ring-blue-600" id="recherch" name="Recherch" placeholder="rechercher un film ou un séries" required>
            
             <select name="status" id="status" class="w-[7%] rounded-lg border border-slate-500 bg-slate-800 px-3 py-2 text-white italic focus:outline-none focus:ring-2 focus:ring-blue-600">
             <option value="tous">Tous</option>
@@ -41,11 +41,13 @@
             </div>
         </form>
     </section>
-    <div id="list" class="grid m-4 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <p id="error" class="hidden m-5 p-4 bg-red-600 text-white rounded"></p>
+    <div id="list" class="grid m-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    <div id="pagination" class="flex flex-wrap justify-center gap-2 m-5"></div>
     </main>
     
     </div>
-    <div id="modale" class="hidden fixed inset-0 bg-black/80 flex items-center"><div id="modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4">
+    <div id="modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center p-4">
   <div id="modal-content" class="relative bg-zinc-900 text-white rounded-xl p-6 w-full max-w-2xl max-h-full overflow-y-auto"></div>
     <script type="module" src="./js/main.js"></script>
 </body>
