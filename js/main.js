@@ -38,6 +38,10 @@ function showcards(items){
             })
             modal(item);
         })
+        const heart = card.querySelector(".coeur");
+        heart.addEventListener("click", function (event) {
+            event.stopPropagation();
+        })
     })
 }
 

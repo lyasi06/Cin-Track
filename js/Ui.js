@@ -6,8 +6,18 @@ function typeAflam(type) {
 }
 
 function createCard(item) {
-    return `<div class="card bg-zinc-900 text-white rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition" data-id="${item.id}">
-      <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover">
+    return `
+    <div class="card bg-zinc-900 text-white rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition" data-id="${item.id}">
+
+      <div class="relative">
+        <img src="${item.image}" alt="${item.title}" class="h-72 w-full object-cover">
+        <button class="coeur absolute right-2 top-2 rounded-full bg-black/60 p-2 text-white hover:text-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg>
+        </button>
+      </div>
+
       <h3 class="font-bold px-3 pt-3">${item.title}</h3>
       <p class="text-sm text-gray-400 px-3 pb-3">${item.releaseYear} • ${typeAflam(item.type)}</p>
     </div>
