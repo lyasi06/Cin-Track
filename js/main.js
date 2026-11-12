@@ -1,5 +1,6 @@
 import {getTitles} from "./api.js";
-import {modal, closeModal, renderCards, renderPagination, showError} from "./Ui.js";
+import {modal, closeModal, renderCards, renderPagination, renderFavorites, showError} from "./Ui.js";
+import { getFavorites, toggleFavorite, removeFavorite } from "./favorite.js";
 async function initialis(){
     try{
         allItems = await getTitles();
@@ -26,6 +27,16 @@ function goToPage(page){
     currentPage = page;
     showPage();
 }
+
+function showFavorites(){
+    renderFavorites(getFavorites(), handleRemove);
+}
+
+function handleRemove(id){
+    removeFavorite(id);
+    showPage();          // l'cœur ywelli byed
+    showFavorites();
+}
 function showcards(items){
     renderCards(items);
     const cards = document.querySelectorAll(".card");
@@ -41,6 +52,13 @@ function showcards(items){
         const heart = card.querySelector(".coeur");
         heart.addEventListener("click", function (event) {
             event.stopPropagation();
+            const id = card.dataset.id;
+            const item = allItems.find(function(i){
+                return i.id === id;
+            })
+            toggleFavorite(item);
+            showPage();
+            showFavorites();
         })
     })
 }
@@ -52,8 +70,10 @@ document.querySelector("#modal").addEventListener("click", function(event){
     }
 })
 initialis();
+showFavorites();
 
 import {handleFilter, paginate} from "./filter.js";
+// import { toggleFavorite } from "./favorite.js";
 async function update() {
     filteredItems = await handleFilter();
     currentPage = 1;
