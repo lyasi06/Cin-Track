@@ -27,3 +27,9 @@ export async function handleFilter(){
     })
     return filterfilm;
 }
+
+
+export function paginate(item, page) {
+    const start = (page - 1) * 8;
+    return item.slice(start, start + 8); 
+}
