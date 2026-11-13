@@ -1,5 +1,5 @@
 // import {handleFilter} from "./main.js";
-import {getTitles} from "./api.js";
+import {getTitles} from "./API.js";
 
 export async function handleFilter(){
     const types = await getTitles();

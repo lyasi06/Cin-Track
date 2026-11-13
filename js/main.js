@@ -1,4 +1,4 @@
-import {getTitles} from "./api.js";
+import {getTitles} from "./API.js";
 import {modal, closeModal, renderCards, renderPagination, renderFavorites, showError} from "./Ui.js";
 import { getFavorites, toggleFavorite, removeFavorite } from "./favorite.js";
 async function initialis(){
