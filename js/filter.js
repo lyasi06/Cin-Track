@@ -1,6 +1,9 @@
-// import {handleFilter} from "./main.js";
+
 import {getTitles} from "./API.js";
 
+
+//Récupère le texte de recherche et la valeur du select, puis filtre les items selon les deux critères.
+//Ordre : d'abord recherche (titre), puis filtre (type).
 export async function handleFilter(){
     const types = await getTitles();
     const searchfilm = document.getElementById("recherch");
@@ -28,7 +31,8 @@ export async function handleFilter(){
     return filterfilm;
 }
 
-
+//Retourne les 8 items de la page demandée.
+//Calcul : start = (page - 1) * 8
 export function paginate(item, page) {
     const start = (page - 1) * 8;
     return item.slice(start, start + 8); 

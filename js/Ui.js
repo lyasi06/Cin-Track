@@ -1,12 +1,13 @@
 import {isFavorite} from "./favorite.js";
 
+//Convertit le type brut de l'API ("movie"/"serie") en libellé affichable ("Film"/"Serie").
 function typeAflam(type) {
     if(type === "movie"){
         return "Film";
     }
     return "Serie";
 }
-
+//Génère le HTML d'une card pour un item donné. Affiche le cœur en rouge si l'item est déjà favori.
 function createCard(item) {
     let heartColor = "text-white";
     let heartFill = "none";
@@ -31,6 +32,8 @@ function createCard(item) {
     </div>
   `;
 }
+
+//Injecte le HTML de toutes les cards dans #list. Affiche un message si aucun résultat.
 export function renderCards(items) {
     const element = document.querySelector("#list");
     if(items.length === 0){
@@ -42,6 +45,10 @@ export function renderCards(items) {
 
     element.innerHTML = items.map(createCard).join(""); 
 }
+
+//Remplit et affiche la modal avec les détails de l'item :
+// image, type, année, durée/saisons, genres, description,
+// réalisateurs et pays de production.
 
 export function modal(item){
     let extra = "";
@@ -102,9 +109,15 @@ text.innerHTML =  `<div class="grid md:grid-cols-2">
   document.querySelector("#modal").classList.remove("hidden");
 }
 
+
+
+//Cache la modal en ajoutant la classe "hidden".
 export function closeModal(){
     document.querySelector("#modal").classList.add("hidden");
 }
+
+
+//Affiche un message d'erreur dans #error.
 
 export function showError(message){
     const error = document.querySelector("#error");
@@ -112,7 +125,10 @@ export function showError(message){
     error.classList.remove("hidden");
 }
 
-
+//Génère les boutons de pagination.
+// - 8 items par page
+// - Met en rouge le bouton de la page actuelle
+// - Appelle onPageChange(page) au clic
 export function renderPagination(total, currentPage, onPageChange){
     console.log(total)
     const box = document.querySelector("#pagination");
@@ -138,6 +154,11 @@ export function renderPagination(total, currentPage, onPageChange){
 }
 }
 
+
+//Affiche les favoris dans la sidebar avec :
+// - un compteur films / séries
+// - une liste avec image, titre, année, type
+// - un bouton ✕ pour retirer chaque favori
 export function renderFavorites(favorites, onRemove){
     const list = document.querySelector("#fav-list");
 
