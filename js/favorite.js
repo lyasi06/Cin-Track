@@ -1,25 +1,3 @@
-// let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-// export function getFavorites(){
-//     return favorites;
-// }
-
-// export function isFavorite(id){
-//     const found = favorites.find(function(fav){
-//         return fav.id === id;
-//     });
-//     return found !== undefined;
-// }
-
-// export function toggleFavorite(item){
-//     if(isFavorite(item.id)){
-//         removeFavorite(item.id);
-//     }
-//     else{
-//         favorites
-//     }
-// }
-
 
 export function getFavorites(){
     const saved = localStorage.getItem("favorites");

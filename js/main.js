@@ -34,7 +34,7 @@ function showFavorites(){
 
 function handleRemove(id){
     removeFavorite(id);
-    showPage();          // l'cœur ywelli byed
+    showPage();          
     showFavorites();
 }
 function showcards(items){

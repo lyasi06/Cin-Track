@@ -33,6 +33,13 @@ function createCard(item) {
 }
 export function renderCards(items) {
     const element = document.querySelector("#list");
+    if(items.length === 0){
+        element.innerHTML = `<div class="col-span-full text-center py-12 text-red-500">
+                Aucun résultat trouvé.
+            </div>`;
+        return;
+    }
+
     element.innerHTML = items.map(createCard).join(""); 
 }
 
@@ -139,7 +146,22 @@ export function renderFavorites(favorites, onRemove){
         return;
     }
 
-    list.innerHTML = favorites.map(function (fav){
+    let countFilm = 0;
+    let countSerie = 0;
+    favorites.forEach(function(fav){
+        if(fav.type === "movie"){
+            countFilm++;
+        } else {
+            countSerie++;
+        }
+    });
+    
+    list.innerHTML = `<div class="col-span-full mb-2 text-sm text-slate-300">
+            Films: <span class="font-bold text-red-500">${countFilm}</span> • 
+            Séries: <span class="font-bold text-red-500">${countSerie}</span>
+        </div>`
+        
+        +favorites.map(function (fav){
         return `<div class="flex items-center gap-3 bg-slate-700 rounded-lg p-2">
             <img src="${fav.image}" alt="${fav.title}" class="w-12 h-16 object-cover rounded">
             <div class="flex-1 min-w-0">
